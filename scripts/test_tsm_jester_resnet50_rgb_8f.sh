@@ -1,0 +1,6 @@
+
+# test TSM
+python test_models.py jester \
+    --weights=pretrained/TSM_jester_RGB_resnet50_shift8_blockres_avg_segment8_e2.pth \
+    --test_segments=8 --test_crops=1 \
+    --batch_size=32
