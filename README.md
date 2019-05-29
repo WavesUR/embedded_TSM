@@ -1,7 +1,7 @@
 ## Note
 
 ### Pretrained Checkpoint
-Make sure you download the pretrained Checkpoint files
+Make sure you download the pretrained Checkpoint files to `/pretrained/` 
 
 1. `TSM_jester_RGB_MobileNetV2_shift8_blockres_avg_segment8_e5.pth`
 
