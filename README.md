@@ -1,3 +1,30 @@
+## Note
+
+### Pretrained Checkpoint
+Make sure you download the pretrained Checkpoint files
+
+1. `TSM_jester_RGB_MobileNetV2_shift8_blockres_avg_segment8_e5.pth`
+
+2. `TSM_jester_RGB_resnet50_shift8_blockres_avg_segment8_e2.pth`
+
+### Dataset directory
+Modify the `ROOT_DATASET` if necessary, in `/ops/dataset_config.py` 
+
+### Test MobileNetV2 Model on jester dataset
+
+```bash
+./scripts/test_tsm_jester_MobileNetV2_rgb_8f.sh
+```
+
+### Test ResNet-50 Model on jester dataset
+
+```bash
+./scripts/test_tsm_jester_resnet50_rgb_8f.sh
+```
+
+
+
+
 # Temporal Shift Module for Efficient Video Understanding
 
 We release the PyTorch code of the [Temporal Shift Module](https://arxiv.org/abs/1811.08383).
