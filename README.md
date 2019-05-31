@@ -7,6 +7,8 @@ Make sure you download the pretrained Checkpoint files to `/pretrained/`
 
 2. `TSM_jester_RGB_resnet50_shift8_blockres_avg_segment8_e2.pth`
 
+3. `mobilenet_v2.pth.tar`
+
 ### Dataset Directory
 Make sure dataset directory is as the following structure.
 Copy `*.txt` files to `jester` folder.
@@ -30,7 +32,8 @@ run following shell in `master` folder.
 ```bash
 ├── pretrained
 │   ├── TSM_jester_RGB_MobileNetV2_shift8_blockres_avg_segment8_e5.pth
-│   └── TSM_jester_RGB_resnet50_shift8_blockres_avg_segment8_e2.pth
+│   ├── TSM_jester_RGB_resnet50_shift8_blockres_avg_segment8_e2.pth
+│   └── mobilenet_v2.pth.tar
 ├── scripts
 │   ├── test_tsm_jester_MobileNetV2_rgb_8f.sh
 │   └── test_tsm_jester_resnet50_rgb_8f.sh
