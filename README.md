@@ -1,3 +1,51 @@
+## Note
+
+### Pretrained Checkpoint
+Make sure you download the pretrained Checkpoint files to `/pretrained/` 
+
+1. `TSM_jester_RGB_MobileNetV2_shift8_blockres_avg_segment8_e5.pth`
+
+2. `TSM_jester_RGB_resnet50_shift8_blockres_avg_segment8_e2.pth`
+
+3. `mobilenet_v2.pth.tar`
+
+### Dataset Directory
+Make sure dataset directory is as the following structure.
+Copy `*.txt` files to `jester` folder.
+
+### Test Scripts
+run following shell in `master` folder.
+
+#### Test MobileNetV2 Model on jester dataset
+
+```bash
+./scripts/test_tsm_jester_MobileNetV2_rgb_8f.sh
+```
+
+#### Test ResNet-50 Model on jester dataset
+
+```bash
+./scripts/test_tsm_jester_resnet50_rgb_8f.sh
+```
+
+### Directory Structure
+```bash
+├── pretrained
+│   ├── TSM_jester_RGB_MobileNetV2_shift8_blockres_avg_segment8_e5.pth
+│   ├── TSM_jester_RGB_resnet50_shift8_blockres_avg_segment8_e2.pth
+│   └── mobilenet_v2.pth.tar
+├── scripts
+│   ├── test_tsm_jester_MobileNetV2_rgb_8f.sh
+│   └── test_tsm_jester_resnet50_rgb_8f.sh
+└── dataset
+    └── jester
+        ├── 20bn-jester-v1
+        ├── category.txt
+        ├── train_videofolder.txt
+        └── val_videofolder.txt
+```
+
+
 # Temporal Shift Module for Efficient Video Understanding
 
 We release the PyTorch code of the [Temporal Shift Module](https://arxiv.org/abs/1811.08383).
