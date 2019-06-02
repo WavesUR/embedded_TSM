@@ -30,15 +30,18 @@ class TemporalShift(nn.Module):
         x = x.view(n_batch, n_segment, c, h, w)
 
         fold = c // fold_div
-        if inplace:
-            out = InplaceShift.apply(x, fold)
-        else:
-            out = torch.zeros_like(x)
-            out[:, :-1, :fold] = x[:, 1:, :fold]  # shift left
-            out[:, 1:, fold: 2 * fold] = x[:, :-1, fold: 2 * fold]  # shift right
-            out[:, :, 2 * fold:] = x[:, :, 2 * fold:]  # not shift
-
-        return out.view(nt, c, h, w)
+#         if inplace:
+#             out = InplaceShift.apply(x, fold)
+#         else:
+#             out = torch.zeros_like(x)
+#             out[:, :-1, :fold] = x[:, 1:, :fold]  # shift left
+#             out[:, 1:, fold: 2 * fold] = x[:, :-1, fold: 2 * fold]  # shift right
+#             out[:, :, 2 * fold:] = x[:, :, 2 * fold:]  # not shift
+        out = x.data.new(n_batch, n_segment, c, h, w).zero_()
+        out[:, :-1, :fold] = x[:, 1:, :fold]  # shift left
+        out[:, 1:, fold: 2 * fold] = x[:, :-1, fold: 2 * fold]  # shift right
+        out[:, :, 2 * fold:] = x[:, :, 2 * fold:]  # not shift
+        return out.view(nt, c, h, w)  
 
 
 class InplaceShift(torch.autograd.Function):

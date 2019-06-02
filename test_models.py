@@ -195,6 +195,17 @@ for this_weights, this_test_segments, test_file in zip(weights_list, test_segmen
     else:
         devices = list(range(args.workers))
 
+    def convert_onnx(model):
+        # Translate Pytorch Model into Onnx Model
+        input_channel = 3 # for RGB input
+        dummy_input = torch.randn(args.batch_size, input_channel, \
+                args.input_size, args.input_size, device='cuda')
+        output_names = ["output"]
+        torch.onnx.export(model.cuda(), dummy_input, this_arch+'.onnx', verbose=True, \
+            output_names=output_names)   
+    
+    convert_onnx(net)
+        
     net = torch.nn.DataParallel(net.cuda())
     net.eval()
 
